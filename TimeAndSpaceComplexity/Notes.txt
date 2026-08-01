@@ -1,0 +1,230 @@
+Time Complexity and Space Complexity
+
+These are used to measure the efficiency of an algorithm.
+
+1. Time Complexity
+Definition
+
+Time Complexity is the amount of time an algorithm takes to execute as the size of the input (N) increases.
+
+It does not measure actual time in seconds. Instead, it measures how the number of operations grows with the input size.
+
+Example
+for(int i = 0; i < n; i++) {
+    System.out.println(i);
+}
+
+The loop runs N times.
+
+Time Complexity = O(N)
+
+Another Example
+for(int i = 0; i < n; i++) {
+    for(int j = 0; j < n; j++) {
+        System.out.println(i + " " + j);
+    }
+}
+
+Outer loop → N times
+
+Inner loop → N times
+
+Total operations = N × N = N²
+
+Time Complexity = O(N²)
+
+2. Space Complexity
+Definition
+
+Space Complexity is the total amount of memory an algorithm uses while running.
+
+It includes:
+
+Input memory (sometimes ignored in analysis)
+Extra/auxiliary memory used by the algorithm
+Example
+int sum = 0;
+
+for(int i = 0; i < n; i++) {
+    sum += i;
+}
+
+Only one extra variable (sum) is used.
+
+Space Complexity = O(1)
+
+Example
+int arr[] = new int[n];
+
+An array of size N is created.
+
+Space Complexity = O(N)
+
+Time Complexity Notations
+
+There are three important asymptotic notations.
+
+1. Big O Notation (O)
+Definition
+
+It represents the worst-case time complexity.
+
+It tells us the maximum time an algorithm can take.
+
+Example
+
+Linear Search
+
+for(int i = 0; i < n; i++) {
+    if(arr[i] == x)
+        return i;
+}
+
+Worst case:
+
+Element is at the last index
+Element is not present
+
+Operations = N
+
+Big O = O(N)
+
+2. Omega Notation (Ω)
+Definition
+
+Represents the best-case time complexity.
+
+It tells the minimum time required.
+
+Example
+
+Linear Search
+
+If the element is found at the first index:
+
+Operations = 1
+
+Ω(1)
+
+3. Theta Notation (Θ)
+Definition
+
+Represents the average or tight bound.
+
+When the upper bound and lower bound are the same, we use Theta.
+
+Example
+for(int i = 0; i < n; i++) {
+    System.out.println(i);
+}
+
+Best = N
+
+Worst = N
+
+Average = N
+
+Therefore,
+
+Θ(N)
+
+Common Time Complexities
+Complexity	Name	Example
+O(1)	Constant	Access array element
+O(log N)	Logarithmic	Binary Search
+O(√N)	Square Root	Finding factors of a number
+O(N)	Linear	Linear Search
+O(N log N)	Linearithmic	Merge Sort, Heap Sort
+O(N²)	Quadratic	Bubble Sort, Selection Sort
+O(N³)	Cubic	Triple nested loops
+O(2ᴺ)	Exponential	Recursive Fibonacci
+O(N!)	Factorial	Generating all permutations
+Common Space Complexities
+Complexity	Meaning
+O(1)	Constant extra memory
+O(log N)	Recursive call stack (e.g., Binary Search)
+O(N)	Array, HashMap, Queue
+O(N²)	Matrix
+How to Calculate Time Complexity
+Rule 1: Ignore Constants
+for(int i = 0; i < 1000; i++)
+
+Runs 1000 times.
+
+O(1) (constant)
+
+Rule 2: Sequential Loops Add
+for(int i = 0; i < n; i++) {}
+
+for(int i = 0; i < n; i++) {}
+
+Total = N + N = 2N
+
+Ignore constant 2.
+
+O(N)
+
+Rule 3: Nested Loops Multiply
+for(int i = 0; i < n; i++)
+    for(int j = 0; j < n; j++)
+
+Total = N × N
+
+O(N²)
+
+Rule 4: Different Variables
+for(int i = 0; i < n; i++) {}
+
+for(int j = 0; j < m; j++) {}
+
+O(N + M)
+
+Rule 5: Nested Different Variables
+for(int i = 0; i < n; i++)
+    for(int j = 0; j < m; j++)
+
+O(N × M)
+
+Rule 6: Logarithmic Pattern
+while(n > 1){
+    n /= 2;
+}
+
+Each iteration halves the input.
+
+O(log N)
+
+Best, Average, and Worst Case
+
+Suppose you perform a linear search on an array:
+
+Array = [5, 8, 12, 15, 20]
+Search = 5
+Best Case: Element found at first position → Ω(1)
+Average Case: Element found somewhere in the middle → Θ(N)
+Worst Case: Element at last position or absent → O(N)
+Summary
+Concept	Meaning
+Time Complexity	Growth of execution time with input size
+Space Complexity	Growth of extra memory usage with input size
+Big O (O)	Worst-case complexity
+Omega (Ω)	Best-case complexity
+Theta (Θ)	Tight/average bound (same upper and lower growth)
+Complexity Order (Fastest → Slowest)
+O(1)
+   ↓
+O(log N)
+   ↓
+O(√N)
+   ↓
+O(N)
+   ↓
+O(N log N)
+   ↓
+O(N²)
+   ↓
+O(N³)
+   ↓
+O(2ᴺ)
+   ↓
+O(N!)
